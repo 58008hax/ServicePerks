@@ -11,6 +11,8 @@ namespace ServicePerks.Entities
         public string EventName { get; set; }
         public int EventPoints { get; set; }
         public DateTime EventDate { get; set; }
+        public string EventLocation { get; set; }
+        public string EventDescription { get; set; }
         public int Registered { get; set; }
     }
 }
