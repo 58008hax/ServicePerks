@@ -3,6 +3,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.IO;
+using System.Text;
+using ServicePerks.Entities;
+//using ServicePerks.Services; HAVENT DONE THIS YET!!!!
 
 namespace ServicePerks
 {
@@ -25,10 +35,15 @@ namespace ServicePerks
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            var connectionString = Configuration["ConnectionString:DefaultConnection"];
+            services.AddDbContext<ServicePerksDBContext>(o => o.UseSqlServer(connectionString));
+            
+            //add repositories here
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ServicePerksDBContext context)
         {
             if (env.IsDevelopment())
             {
@@ -38,6 +53,8 @@ namespace ServicePerks
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            DbInitializer.Initialize(context);
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
