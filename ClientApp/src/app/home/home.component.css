@@ -44,5 +44,7 @@
 }
 
 .join {
-    bottom: 0px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
 }
