@@ -1,0 +1,48 @@
+.search-container {
+    margin: 0 auto;
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+
+.search input {
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 26px;
+}
+
+.search span {
+    font-size: 18px;
+    float: left;
+    top: 22px;
+    left: 4px;
+}
+
+.card {
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 24px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+    width: 100%;
+}
+
+.container h2 {
+    margin: 0 auto;
+}
+
+.points, .join {
+    float: right;
+}
+
+.join {
+    bottom: 0px;
+}
