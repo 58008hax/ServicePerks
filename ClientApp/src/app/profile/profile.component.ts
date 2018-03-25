@@ -13,6 +13,8 @@ export class ProfileComponent {
     public upcoming_items:any;
     public past_items:any;
     public user_points = 700;
+    public user_total_points = 0;
+    public num_events = 0;
 
     constructor() {
         this.my_cards = [
@@ -101,5 +103,10 @@ export class ProfileComponent {
                 points: 400
             }
         ]
+        this.past_items.forEach(card => {
+            this.user_total_points += card.points;
+            this.num_events ++;
+        })
+        this.user_total_points += this.user_points;
     }
 }
