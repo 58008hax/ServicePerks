@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class RewardsComponent {
     public my_cards:any;
     public avail_cards:any;
-    public points = 2000;
+    public points = 700;
 
     constructor() {
         this.my_cards = [
