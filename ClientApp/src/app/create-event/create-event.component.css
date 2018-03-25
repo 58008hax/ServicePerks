@@ -25,13 +25,15 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     float: right;
+    margin: 10px;
+    margin-bottom: 0px;
 }
 
 input[type=submit]:hover {
     background-color: #45a049;
 }
 
-.container {
+.create-event-container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -41,12 +43,14 @@ input[type=submit]:hover {
     float: left;
     width: 25%;
     margin-top: 6px;
+    padding-left: 8px;
 }
 
 .col-75 {
     float: left;
     width: 75%;
     margin-top: 6px;
+    padding-right: 8px;
 }
 
 /* Clear floats after the columns */

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  public cards:any;
+  cards:any;
+  items:any;
+  searchInput:string;
 
-  constructor() {
+  constructor(private router: Router) {
     //Load most recent events
     this.cards = [
       {
@@ -32,13 +35,28 @@ export class HomeComponent {
         location: "Boy's & Girls Club-Hudson County, Hoboken, NJ 07030",
         points: 200
       }
-    ]
+    ];
+    this.items = this.cards;
   }
 
   goToEvent(card:any) {
     console.log("Event Clicked:");
     console.log(card);
+    this.router.navigate(['/event', {data: card}]);
   }
 
+  filterItems() {
+    //console.log(this.searchInput);
+    this.items = this.cards;
+    this.items = this.items.filter((card) => {
+      //Initially filter based on name
+      var result = card.name.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+      //But if no results are returned, then filter based on location
+      if (result == false) {
+        result = card.location.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+      }
+      return result;
+    });
+  }
 
 }
