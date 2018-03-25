@@ -13,6 +13,7 @@ namespace ServicePerks.Entities
         public DbSet<Events> Events { get; set; }
         public DbSet<Vendors> Vendors { get; set; }
         public DbSet<Registered> Registered { get; set; }
+        public DbSet<Redeemed> Redeemed { get; set; }
         
     }
 }
