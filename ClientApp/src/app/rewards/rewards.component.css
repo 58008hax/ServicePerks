@@ -18,6 +18,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    padding-left: 5px;
 }
 
 .container {
@@ -89,6 +90,21 @@
 }
 
 .point_disp {
+    /*
     margin-top: 75px;
     float: right;
+    */
+    margin-bottom: 24px;
+}
+
+.point_disp h3 {
+    margin-top: 8px;
+}
+
+.point_disp span {
+    color: #57AD68;
+}
+
+button:focus {
+    outline: none;
 }

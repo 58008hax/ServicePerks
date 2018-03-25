@@ -42,6 +42,7 @@ export class ProfileComponent {
                 for (let event of this.all_events) {
                     if(eventCodes.includes(event.id)) {
                         console.log(event);
+                        event.eventDate = new Date(event.eventDate).toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
                         this.upcoming_items.push(event);
                     }
                 }

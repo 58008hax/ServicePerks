@@ -4,9 +4,10 @@
         <h3>Track your rewards and view available coupons.</h3>
     </div>
     <div class="point_disp">
-        <h3>Available points: {{user_points}}</h3>
+        <h3>Available points: <span>{{user_profile.pointsAvailable}}</span></h3>
     </div>
 </section>
+<!--
 <h2 class="h2">My Rewards</h2>
 <section class="feed-container">
     <div class="card" *ngFor="let card of my_cards">
@@ -20,16 +21,17 @@
         </div>
     </div>
 </section>
+-->
 <h2 class="h2">Available Rewards</h2>
 <section class="feed-container">
     <div class="card" *ngFor="let card of avail_cards">
         <div class="container">
             <div class="points">
-                <span>{{card.points}} pts.</span>
+                <span>{{card.redeemPoints}} pts.</span>
             </div>
-            <button class="button">Purchase</button>
-            <h3>{{card.business}}</h3>
-            <p>{{card.description}}</p>
+            <button class="button" (click)="purchaseCoupon(card)">Purchase</button>
+            <h3>{{card.name}}</h3>
+            <p>{{card.offer}}</p>
             <p>${{card.value}} value</p>
         </div>
     </div>

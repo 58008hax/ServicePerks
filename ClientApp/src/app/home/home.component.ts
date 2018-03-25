@@ -29,7 +29,6 @@ export class HomeComponent {
       this.cards = result;
       for (let card of this.cards) {
         card.eventDate = new Date(card.eventDate).toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
-        console.log(card.eventDate);
       }
       this.items = this.cards;
     });
