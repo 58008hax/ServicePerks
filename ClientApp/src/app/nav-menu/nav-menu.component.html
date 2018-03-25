@@ -32,6 +32,11 @@
                         <span class='glyphicon glyphicon-star'></span> Rewards
                     </a>
                 </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/create-event"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-edit'></span> Create New Event
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
