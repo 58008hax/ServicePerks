@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event',
@@ -11,6 +12,12 @@ export class EventComponent {
     //For use once we have real data
     id:any;
     data:any;
+    httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json; charset=utf-8'
+        })
+    };
+    baseURL: string;
     //Temporary static data:
     numOfPeople:number;
     date:string;
@@ -21,7 +28,8 @@ export class EventComponent {
     lat:number;
     long:number;
 
-    constructor(private route: ActivatedRoute, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    constructor(private route: ActivatedRoute, private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
+        this.baseURL = baseUrl;
         this.lat = 40.745310;
         this.long = -74.026239;
         this.route.params.subscribe(params => {
@@ -42,4 +50,17 @@ export class EventComponent {
             })
         });
     }
+    
+    joinEvent() {
+        let joinData = {
+          eventCode: this.data.id,
+          userEmail: 'mattaquiles@gmail.com',
+          attended: false
+        }
+    
+        this.http.post(this.baseURL + 'api/registered', joinData, this.httpOptions).subscribe(result => {
+          console.log(result);
+          this.router.navigate(['/profile']);
+        });
+      }
 }
