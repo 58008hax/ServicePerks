@@ -36,8 +36,8 @@ namespace ServicePerks
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<ServicePerksDBContext>(o => o.UseSqlServer(connectionString));
+            //var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+            services.AddDbContext<ServicePerksDBContext>(o => o.UseInMemoryDatabase("ServicePerksDB"));
             
             //add repositories here
         }
@@ -54,7 +54,7 @@ namespace ServicePerks
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //DbInitializer.Initialize(context);
+            DbInitializer.Initialize(context);
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
