@@ -9,7 +9,7 @@
                 <label for="title">Event Title</label>
             </div>
             <div class="col-75">
-                <input type="text" id="title" name="title" placeholder="Event Title">
+                <input #eventTitle type="text" id="title" name="title" placeholder="Event Title">
             </div>
         </div>
         <div class="row">
@@ -17,7 +17,7 @@
                 <label for="start-time">Event Start Time</label>
             </div>
             <div class="col-75">
-                <input type="time" id="start-time" name="start-time">
+                <input #startTime type="time" id="start-time" name="start-time">
             </div>
         </div>
         <div class="row">
@@ -25,7 +25,7 @@
                 <label for="end-time">Event End Time</label>
             </div>
             <div class="col-75">
-                <input type="time" id="end-time" name="end=time">
+                <input #endTime type="time" id="end-time" name="end=time">
             </div>
         </div>
         <div class="row">
@@ -33,15 +33,16 @@
                 <label for="date">Event Date</label>
             </div>
             <div class="col-75">
-                <input type="date" id="date" name="date">
+                <input #date type="date" id="date" name="date">
             </div>
         </div>
         <div class="row">
             <div class="col-25">
                 <label for="location">Event Location</label>
             </div>
-            <div class="col-75">
-                <input type="text" id="location" name="location" placeholder="Event Location">
+            <div class="col-75 form-group">
+                <!--<input type="text" id="location" name="location" placeholder="Event Location">-->
+                <input ([ngModel])="location" id="location" name="location" placeholder="Event Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"/>
             </div>
         </div>
         <div class="row">
@@ -49,11 +50,11 @@
                 <label for="description">Event Description</label>
             </div>
             <div class="col-75">
-                <textarea id="description" name="description" placeholder="Event Description" style="height:200px"></textarea>
+                <textarea #description id="description" name="description" placeholder="Event Description" style="height:200px"></textarea>
             </div>
         </div>
         <div class="row">
-            <input type="submit" value="Submit">
+            <input type="submit" (click)="submit()" value="Submit">
         </div>
     </form>
 </div>
