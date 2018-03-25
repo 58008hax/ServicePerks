@@ -16,7 +16,7 @@
     </div>
 </section>
 
-<h2 class="h2">Upcoming Events</h2>
+<h2 class="h2">Registered Events</h2>
 <section class="feed-container">
     <div class="card" *ngFor="let card of upcoming_items">
         <div class="container">
@@ -40,7 +40,7 @@
     </div>
 </section>
 
-<h2 class="h2">Past Events</h2>
+<!-- <h2 class="h2">Past Events</h2>
 <section class="feed-container">
     <div class="card" *ngFor="let card of past_items">
         <div class="container">
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <h2 class="h2">Available Coupons</h2>
 <section class="feed-container">
@@ -71,7 +71,7 @@
             <div class="points">
                 <span>{{card.points}} pts.</span>
             </div>
-            <button class="button">Redeem</button>
+            <button class="button">Activate</button>
             <h3>{{card.business}}</h3>
             <p>{{card.description}}</p>
             <p>${{card.value}} value</p>
@@ -79,7 +79,7 @@
     </div>
 </section>
 
-<h2 class="h2">Used Coupons</h2>
+<!-- <h2 class="h2">Used Coupons</h2>
 <section class="feed-container">
     <div class="card" *ngFor="let card of used_cards">
         <div class="container">
@@ -91,5 +91,4 @@
             <p>${{card.value}} value</p>
         </div>
     </div>
-</section>
-<h3>Total money saved: ${{money_saved}}</h3>
+</section> -->
