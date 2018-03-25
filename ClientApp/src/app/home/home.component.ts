@@ -30,11 +30,8 @@ export class HomeComponent {
 
   goToEvent(card:any) {
     console.log("Event Clicked:");
-    console.log(card);
-    //delete once we have real data to query
-    let cardString = JSON.stringify(card);
-    //once we have real data, send card.id instead of cardString
-    this.router.navigate(['/event', {data: cardString}]);
+    console.log(card.id);
+    this.router.navigate(['/event', {data: card.id}]);
   }
 
   filterItems() {
