@@ -17,15 +17,15 @@ namespace ServicePerks.Controllers
 
             if(_context.Redeemed.Count() == 0)
             {
-                _context.Redeemed.Add(new Redeemed { Id="reg1",
+                _context.Redeemed.Add(new Redeemed { Id="red1",
                                                      OfferCode="vendor1",
                                                      UserEmail="mattaquiles@gmail.com",
                                                      Used=false});
-                _context.Redeemed.Add(new Redeemed { Id="reg1",
+                _context.Redeemed.Add(new Redeemed { Id="red2",
                                                      OfferCode="vendor2",
                                                      UserEmail="mattaquiles@gmail.com",
                                                      Used=false});
-                _context.Redeemed.Add(new Redeemed { Id="reg1",
+                _context.Redeemed.Add(new Redeemed { Id="red3",
                                                      OfferCode="vendor3",
                                                      UserEmail="mattaquiles@gmail.com",
                                                      Used=false});
