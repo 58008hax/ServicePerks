@@ -28,8 +28,8 @@
     <div class="location">
         <p class="header">Location</p>
         <p>{{data.eventLocation}}</p>
-        <agm-map [latitude]="data.eventLat" [longitude]="data.eventLong" [zoom]="15">
-            <agm-marker [latitude]="data.eventLat" [longitude]="data.eventLong"></agm-marker>
+        <agm-map [latitude]="lat" [longitude]="long" [zoom]="15">
+            <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
         </agm-map>
     </div>
 </section>

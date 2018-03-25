@@ -34,7 +34,7 @@ export class EventComponent {
                 }
 
                 this.data = result;
-                this.data.eventDate = new Date(this.data.eventDate).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                this.data.eventDate = new Date(this.data.eventDate).toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
                 if (this.data.eventLat != undefined && this.data.eventLong != undefined) {
                     this.lat = this.data.eventLat;
                     this.long = this.data.eventLong;

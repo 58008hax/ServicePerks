@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +11,15 @@ export class HomeComponent {
   cards:any;
   items:any;
   searchInput:string;
+  baseURL:string;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json; charset=utf-8'
+    })
+  };
 
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.baseURL = baseUrl;
     http.get(baseUrl + 'api/events').subscribe(result => {
       console.log(result);
       if (result == null) {
@@ -21,17 +28,30 @@ export class HomeComponent {
       }
       this.cards = result;
       for (let card of this.cards) {
-        card.eventDate = new Date(card.eventDate).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        card.eventDate = new Date(card.eventDate).toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
         console.log(card.eventDate);
       }
       this.items = this.cards;
     });
   }
 
-  goToEvent(card:any) {
+  joinEvent(eventID:string) {
+    let joinData = {
+      eventCode: eventID,
+      userEmail: 'mattaquiles@gmail.com',
+      attended: false
+    }
+
+    this.http.post(this.baseURL + 'api/registered', joinData, this.httpOptions).subscribe(result => {
+      console.log(result);
+      this.goToEvent(eventID);
+    });
+  }
+
+  goToEvent(cardID) {
     console.log("Event Clicked:");
-    console.log(card.id);
-    this.router.navigate(['/event', {data: card.id}]);
+    console.log(cardID);
+    this.router.navigate(['/event', {data: cardID}]);
   }
 
   filterItems() {

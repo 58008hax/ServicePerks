@@ -18,12 +18,12 @@
 </section>
 
 <section class="feed-container">
-  <div class="card" *ngFor="let card of items" (click)="goToEvent(card)">
+  <div class="card" *ngFor="let card of items" (click)="goToEvent(card.id)">
     <div class="container">
       <div class="points">
         <span>{{card.eventPoints}} pts.</span>
       </div>
-      <div class="join">
+      <div class="join" (click)="joinEvent(card.id)">
         <p>Join</p>
       </div>
       <h2>{{card.eventName}}</h2>
