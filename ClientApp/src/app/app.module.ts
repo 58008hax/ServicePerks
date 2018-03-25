@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { EventComponent } from './event/event.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EventComponent } from './event/event.component';
     FetchDataComponent,
     RewardsComponent,
     CreateEventComponent,
-    EventComponent
+    EventComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,7 +36,8 @@ import { EventComponent } from './event/event.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'rewards', component: RewardsComponent },
       { path: 'create-event', component: CreateEventComponent },
-      { path: 'event', component: EventComponent }
+      { path: 'event', component: EventComponent },
+      { path: 'profile', component: ProfileComponent }
     ])
   ],
   providers: [],
