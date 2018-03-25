@@ -17,7 +17,15 @@ namespace ServicePerks.Controllers
 
             if(_context.Users.Count() == 0)
             {
-                _context.Users.Add(new Users { Id="1a", Email="test@email.com", Password="123pass"});
+                _context.Users.Add(new Users { Id="user1", 
+                                               Email="test@email.com", 
+                                               Password="123pass",
+                                               FirstName="Matthew",
+                                               LastName="Aquiles",
+                                               Type=0,
+                                               TotalPoints=55000,
+                                               PointsAvailable=1200,
+                                               Saved=55});
                 _context.SaveChanges();
             }
         }
@@ -54,7 +62,9 @@ namespace ServicePerks.Controllers
             currUser.FirstName = user.FirstName;
             currUser.LastName = user.LastName;
             currUser.Type = user.Type;
-            currUser.points = user.points;
+            currUser.TotalPoints = user.TotalPoints;
+            currUser.PointsAvailable = user.PointsAvailable;
+            currUser.Saved = user.Saved;
 
             _context.Users.Update(currUser);
             _context.SaveChanges();
