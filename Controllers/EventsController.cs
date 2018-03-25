@@ -35,8 +35,8 @@ namespace ServicePerks.Controllers
                                                  StartTime="1:00",
                                                  EndTime="2:00",
                                                  EventLocation="The Hoboken Shelter, Hoboken, NJ 07030",
-                                                 EventLat=40.743157f,
-                                                 EventLong=-74.031342f,
+                                                 EventLat=40.740368f,
+                                                 EventLong=-74.031174f,
                                                  EventDescription="Help make and serve lunch to help support our homeless this Sunday from 1-2pm at the Hoboken Shelter.",
                                                  Registered=3});
                 _context.Events.Add(new Events { Id="event3",

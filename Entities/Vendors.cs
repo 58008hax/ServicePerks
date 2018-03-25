@@ -11,5 +11,6 @@ namespace ServicePerks.Entities
         public string OfferCode { get; set; }
         public int RedeemPoints { get; set; }
         public DateTime Expiration { get; set; }
+        public int Value { get; set; }
     }
 }
