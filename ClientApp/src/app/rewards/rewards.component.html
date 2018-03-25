@@ -1,24 +1,36 @@
-<body>
+<section class="title-container">
     <h1>Rewards</h1>
+    <p>Track your rewards and view available coupons. <br>
+    You have {{points}} points.
+    </p>
 
-    <p>Track your rewards and view available coupons</p>
-    <main>
-        <h2>My rewards</h2>
-        <div class="mdc-layout-grid__cell">
-            <div class="mdc-card shrine-product-card">
-              <section class="mdc-card__primary">
-                <span class="mdc-card__title shrine-product-card__price">$20</span>
-              </section>
-              <img class="shrine-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+</section>
+<h2>My Rewards</h2>
+<section class="feed-container">
+    <div class="card" *ngFor="let card of my_cards">
+        <div class="container">
+            <div class="points">
+                <p>{{card.points}} pts.</p>
             </div>
-            <div class="mdc-card shrine-product-card">
-                <section class="mdc-card__primary">
-                  <span class="mdc-card__title shrine-product-card__price">$20</span>
-                </section>
-                <img class="shrine-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
-              </div>
-          </div>
-          
-    </main>
-</body>
-
+            <h3>{{card.business}}</h3>
+            <p>{{card.description}}</p>
+            <p>${{card.value}} value</p>
+        </div>
+    </div>
+</section>
+<h2>Available Rewards</h2>
+<section class="feed-container">
+    <div class="card" *ngFor="let card of avail_cards">
+        <div class="container">
+            <div class="points">
+                <p>{{card.points}} pts.</p>
+            </div>
+            <h3>{{card.business}}</h3>
+            <p>{{card.description}}</p>
+            <p>${{card.value}} value</p>
+            <div class="buy">
+                <button class="button">Redeem</button>
+            </div>
+        </div>
+    </div>
+</section>
