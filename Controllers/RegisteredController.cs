@@ -17,10 +17,6 @@ namespace ServicePerks.Controllers
 
             if(_context.Registered.Count() == 0)
             {
-                _context.Registered.Add(new Registered { Id="reg1",
-                                                         EventCode="event1",
-                                                         UserEmail="mattaquiles@gmail.com",
-                                                         Attended=false});
                 _context.Registered.Add(new Registered { Id="reg2",
                                                          EventCode="event2",
                                                          UserEmail="mattaquiles@gmail.com",
