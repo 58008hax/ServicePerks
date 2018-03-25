@@ -5,19 +5,20 @@
 <section class="search-container">
   <div class="search">
     <span class='glyphicon glyphicon-search'></span>
-    <input type="text" placeholder="Search..." [(ngModel)]="search"/>
+    <input type="text" [(ngModel)]="searchInput" (ngModelChange)="filterItems()" placeholder="Search..."/>
   </div>
 
   <div class="filter">
     <nav>
-      <a>Popular</a>
-      <a>Recent</a>
+      <span>Filter by:</span>
+      <a (click)="filterBy('popular')">Popular</a> | 
+      <a (click)="filterBy('recent')">Recent</a>
     </nav>
   </div>
 </section>
 
 <section class="feed-container">
-  <div class="card" *ngFor="let card of cards" (click)="goToEvent(card)">
+  <div class="card" *ngFor="let card of items" (click)="goToEvent(card)">
     <div class="container">
       <div class="points">
         <span>{{card.points}} pts.</span>

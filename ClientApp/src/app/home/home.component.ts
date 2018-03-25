@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  public cards:any;
+  cards:any;
+  items:any;
+  searchInput:string;
 
   constructor() {
     //Load most recent events
@@ -32,7 +34,8 @@ export class HomeComponent {
         location: "Boy's & Girls Club-Hudson County, Hoboken, NJ 07030",
         points: 200
       }
-    ]
+    ];
+    this.items = this.cards;
   }
 
   goToEvent(card:any) {
@@ -40,5 +43,18 @@ export class HomeComponent {
     console.log(card);
   }
 
+  filterItems() {
+    //console.log(this.searchInput);
+    this.items = this.cards;
+    this.items = this.items.filter((card) => {
+      //Initially filter based on name
+      var result = card.name.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+      //But if no results are returned, then filter based on location
+      if (result == false) {
+        result = card.location.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+      }
+      return result;
+    });
+  }
 
 }
