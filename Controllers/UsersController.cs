@@ -63,7 +63,7 @@ namespace ServicePerks.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUser(Users user)
+        public IActionResult CreateUser([FromBody]Users user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();

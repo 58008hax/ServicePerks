@@ -48,7 +48,7 @@ namespace ServicePerks.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateEvent(Redeemed r)
+        public IActionResult CreateEvent([FromBody]Redeemed r)
         {
             _context.Redeemed.Add(r);
             _context.SaveChanges();
