@@ -21,11 +21,11 @@ namespace ServicePerks.Controllers
                                                          EventCode="event1",
                                                          UserEmail="mattaquiles@gmail.com",
                                                          Attended=false});
-                _context.Registered.Add(new Registered { Id="reg1",
+                _context.Registered.Add(new Registered { Id="reg2",
                                                          EventCode="event2",
                                                          UserEmail="mattaquiles@gmail.com",
                                                          Attended=false});
-                _context.Registered.Add(new Registered { Id="reg1",
+                _context.Registered.Add(new Registered { Id="reg3",
                                                          EventCode="event3",
                                                          UserEmail="mattaquiles@gmail.com",
                                                          Attended=false});
