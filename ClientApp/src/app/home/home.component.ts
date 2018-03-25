@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent {
   items:any;
   searchInput:string;
 
-  constructor() {
+  constructor(private router: Router) {
     //Load most recent events
     this.cards = [
       {
@@ -41,6 +42,7 @@ export class HomeComponent {
   goToEvent(card:any) {
     console.log("Event Clicked:");
     console.log(card);
+    this.router.navigate(['/event', {data: card}]);
   }
 
   filterItems() {
