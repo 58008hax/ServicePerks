@@ -24,8 +24,8 @@ namespace ServicePerks.Controllers
                                                  StartTime="3:00",
                                                  EndTime="5:00",
                                                  EventLocation="Stevens Park, Hoboken, NJ 07030",
-                                                 EventLat= 40.741532,
-                                                 EventLong= -74.027737,
+                                                 EventLat= 40.741532f,
+                                                 EventLong= -74.027737f,
                                                  EventDescription="Come help cleanup Stevens Park this coming Saturday from 3 to 5pm!",
                                                  Registered=7});
                 _context.Events.Add(new Events { Id="event2",
@@ -35,8 +35,8 @@ namespace ServicePerks.Controllers
                                                  StartTime="1:00",
                                                  EndTime="2:00",
                                                  EventLocation="The Hoboken Shelter, Hoboken, NJ 07030",
-                                                 EventLat=40.743157,
-                                                 EventLong=-74.031342,
+                                                 EventLat=40.743157f,
+                                                 EventLong=-74.031342f,
                                                  EventDescription="Help make and serve lunch to help support our homeless this Sunday from 1-2pm at the Hoboken Shelter.",
                                                  Registered=3});
                 _context.Events.Add(new Events { Id="event3",
@@ -46,8 +46,8 @@ namespace ServicePerks.Controllers
                                                  StartTime="6:00",
                                                  EndTime="8:00",
                                                  EventLocation="Boys and Girls Club-Hudson County, Hoboken, NJ 07030",
-                                                 EventLat= 40.740291,
-                                                 EventLong= -74.037631,
+                                                 EventLat= 40.740291f,
+                                                 EventLong= -74.037631f,
                                                  EventDescription="Come help do whatever it is people do when they volunteer their time at the Boys and Girls Club of Hudson County!",
                                                  Registered=12});
                 _context.SaveChanges();
