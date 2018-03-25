@@ -12,6 +12,12 @@ namespace ServicePerks.Services
         public UsersRepo(ServicePerksDBContext context)
         {
             _context = context;
+
+            if(_context.Users.Count() == 0)
+            {
+                _context.Users.Add(new Users { Id="1a", Email="test@email.com", Password="123pass"});
+                _context.SaveChanges();
+            }
         }
 
         public void AddUser(Users user)

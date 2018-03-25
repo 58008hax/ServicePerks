@@ -1,13 +1,11 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ServicePerks
+namespace ServicePerks.Entities
 {
     public class Vendors
     {
-        [Key]
         public string Id { get; set; }
-
         public string Name { get; set; }
         public string Offer { get; set; }
         public string OfferCode { get; set; }

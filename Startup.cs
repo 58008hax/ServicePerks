@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text;
 using ServicePerks.Entities;
-//using ServicePerks.Services; HAVENT DONE THIS YET!!!!
+using ServicePerks.Services;
 
 namespace ServicePerks
 {
@@ -40,6 +40,10 @@ namespace ServicePerks
             services.AddDbContext<ServicePerksDBContext>(o => o.UseInMemoryDatabase("ServicePerksDB"));
             
             //add repositories here
+            //services.AddScoped<IUsersRepo, UsersRepo>();
+            //services.AddScoped<IEventsRepo, EventsRepo>();
+            //services.AddScoped<IVendorsRepo, VendorsRepo>();
+            //cservices.AddScoped<IRegisteredRepo, RegisteredRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +58,7 @@ namespace ServicePerks
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            DbInitializer.Initialize(context);
+            //DbInitializer.Initialize(context);
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
