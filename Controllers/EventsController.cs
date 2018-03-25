@@ -17,7 +17,7 @@ namespace ServicePerks.Controllers
 
             if(_context.Events.Count() == 0)
             {
-                _context.Events.Add(new Events { Id="event1"});
+                _context.Events.Add(new Events { Id="event1" });
                 _context.SaveChanges();
             }
         }
