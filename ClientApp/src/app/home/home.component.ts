@@ -39,13 +39,42 @@ export class HomeComponent {
     this.items = this.cards;
     this.items = this.items.filter((card) => {
       //Initially filter based on name
-      var result = card.name.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+      var result = card.eventName.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
       //But if no results are returned, then filter based on location
       if (result == false) {
-        result = card.location.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+        result = card.eventLocation.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
       }
       return result;
     });
+  }
+
+  popularCompare(a, b) {
+    if (a.registered < b.registered) {
+      return 1;
+    }
+    if (a.registered > b.registered) {
+      return -1;
+    }
+    return 0;
+  }
+
+  upcomingCompare(a, b) {
+    if (a.eventDate < b.eventDate) {
+      return -1;
+    }
+    if (a.eventDate > b.eventDate) {
+      return 1;
+    }
+    return 0;
+  }
+
+  filterBy(option:string) {
+    if (option == "popular") {
+      this.items.sort(this.popularCompare);
+    }
+    if (option == "upcoming") {
+      this.items.sort(this.upcomingCompare);
+    }
   }
 
 }
