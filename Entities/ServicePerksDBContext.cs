@@ -7,14 +7,12 @@ namespace ServicePerks.Entities
     {
         public ServicePerksDBContext(DbContextOptions<ServicePerksDBContext> options) : base(options)
         {
-            //Database.Migrate();
         }
 
         public DbSet<Users> Users { get; set; }
         public DbSet<Events> Events { get; set; }
         public DbSet<Vendors> Vendors { get; set; }
         public DbSet<Registered> Registered { get; set; }
-
-        //OnModelCreating????
+        
     }
 }
