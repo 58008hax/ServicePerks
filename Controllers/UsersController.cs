@@ -18,14 +18,32 @@ namespace ServicePerks.Controllers
             if(_context.Users.Count() == 0)
             {
                 _context.Users.Add(new Users { Id="user1", 
-                                               Email="test@email.com", 
+                                               Email="mattaquiles@gmail.com", 
                                                Password="123pass",
                                                FirstName="Matthew",
                                                LastName="Aquiles",
-                                               Type=0,
+                                               Type=1,
                                                TotalPoints=55000,
                                                PointsAvailable=1200,
                                                Saved=55});
+                _context.Users.Add(new Users { Id="user2", 
+                                               Email="scottrussel@gmail.com", 
+                                               Password="scottpass123",
+                                               FirstName="Scott",
+                                               LastName="Russel",
+                                               Type=1,
+                                               TotalPoints=40000,
+                                               PointsAvailable=2500,
+                                               Saved=45});
+                _context.Users.Add(new Users { Id="user3", 
+                                               Email="tfals1@gmail.com", 
+                                               Password="falsnumba1",
+                                               FirstName="Thomas",
+                                               LastName="Falsone",
+                                               Type=01,
+                                               TotalPoints=5000,
+                                               PointsAvailable=700,
+                                               Saved=12});
                 _context.SaveChanges();
             }
         }

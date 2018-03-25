@@ -21,28 +21,34 @@ namespace ServicePerks.Controllers
                                                  EventName="Park Cleanup",
                                                  EventPoints=200,
                                                  EventDate= new DateTime(2018, 3, 31),
-                                                 StartTime=300,
-                                                 EndTime=500,
+                                                 StartTime="3:00",
+                                                 EndTime="5:00",
                                                  EventLocation="Stevens Park, Hoboken, NJ 07030",
+                                                 EventLat= 40.741532,
+                                                 EventLong= -74.027737,
                                                  EventDescription="Come help cleanup Stevens Park this coming Saturday from 3 to 5pm!",
                                                  Registered=7});
                 _context.Events.Add(new Events { Id="event2",
                                                  EventName="Homeless Shelter",
                                                  EventPoints=100,
                                                  EventDate= new DateTime(2018, 4, 1),
-                                                 StartTime=100,
-                                                 EndTime=200,
+                                                 StartTime="1:00",
+                                                 EndTime="2:00",
                                                  EventLocation="The Hoboken Shelter, Hoboken, NJ 07030",
+                                                 EventLat=40.743157,
+                                                 EventLong=-74.031342,
                                                  EventDescription="Help make and serve lunch to help support our homeless this Sunday from 1-2pm at the Hoboken Shelter.",
                                                  Registered=3});
                 _context.Events.Add(new Events { Id="event3",
                                                  EventName="Boys and Girls Club",
                                                  EventPoints=200,
                                                  EventDate= new DateTime(2018, 4, 3),
-                                                 StartTime=600,
-                                                 EndTime=800,
+                                                 StartTime="6:00",
+                                                 EndTime="8:00",
                                                  EventLocation="Boys and Girls Club-Hudson County, Hoboken, NJ 07030",
-                                                 EventDescription="Come help do whatever it is people do when they volunteer their time at the Boys and Girls Club of Hdson County!",
+                                                 EventLat= 40.740291,
+                                                 EventLong= -74.037631,
+                                                 EventDescription="Come help do whatever it is people do when they volunteer their time at the Boys and Girls Club of Hudson County!",
                                                  Registered=12});
                 _context.SaveChanges();
             }
@@ -81,6 +87,8 @@ namespace ServicePerks.Controllers
             currEvent.StartTime = e.StartTime;
             currEvent.EndTime = e.EndTime;
             currEvent.EventLocation = e.EventLocation;
+            currEvent.EventLat = e.EventLat;
+            currEvent.EventLong = e.EventLong;
             currEvent.EventDescription = e.EventDescription;
             currEvent.Registered = e.Registered;
                 
