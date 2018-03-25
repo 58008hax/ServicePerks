@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text;
 using ServicePerks.Entities;
-using ServicePerks.Services;
 
 namespace ServicePerks
 {
@@ -35,15 +34,8 @@ namespace ServicePerks
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-
-            //var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<ServicePerksDBContext>(o => o.UseInMemoryDatabase("ServicePerksDB"));
             
-            //add repositories here
-            //services.AddScoped<IUsersRepo, UsersRepo>();
-            //services.AddScoped<IEventsRepo, EventsRepo>();
-            //services.AddScoped<IVendorsRepo, VendorsRepo>();
-            //cservices.AddScoped<IRegisteredRepo, RegisteredRepo>();
+            services.AddDbContext<ServicePerksDBContext>(o => o.UseInMemoryDatabase("ServicePerksDB"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
