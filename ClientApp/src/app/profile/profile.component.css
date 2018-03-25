@@ -118,6 +118,9 @@
     position: relative;
     top: 0;
     left: 0;
+    height: 210px;
+    width: 210px;
+    border-radius: 100px;
 }
 .image2 {
     position: absolute;
