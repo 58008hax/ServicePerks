@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
     CounterComponent,
     FetchDataComponent,
     RewardsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +33,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'rewards', component: RewardsComponent },
-      { path: 'create-event', component: CreateEventComponent},
+      { path: 'create-event', component: CreateEventComponent },
+      { path: 'event', component: EventComponent }
     ])
   ],
   providers: [],
