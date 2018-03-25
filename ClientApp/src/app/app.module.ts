@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RewardsComponent } from './rewards/rewards.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RewardsComponent } from './rewards/rewards.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    RewardsComponent
+    RewardsComponent,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +31,7 @@ import { RewardsComponent } from './rewards/rewards.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'rewards', component: RewardsComponent },
+      { path: 'create-event', component: CreateEventComponent},
     ])
   ],
   providers: [],
