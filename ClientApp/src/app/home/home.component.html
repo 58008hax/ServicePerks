@@ -7,21 +7,38 @@
     <span class='glyphicon glyphicon-search'></span>
     <input type="text" placeholder="Search..." [(ngModel)]="search"/>
   </div>
+
+  <div class="filter">
+    <nav>
+      <a>Popular</a>
+      <a>Recent</a>
+      <a></a>
+    </nav>
+  </div>
 </section>
 
 <section class="feed-container">
-  <div class="card" *ngFor="let card of cards">
+  <div class="card" *ngFor="let card of cards" (click)="goToEvent(card)">
     <div class="container">
       <div class="points">
-        <p>{{card.points}} pts.</p>
+        <span>{{card.points}} pts.</span>
       </div>
       <div class="join">
         <p>Join</p>
       </div>
       <h2>{{card.name}}</h2>
-      <p>{{card.date}}</p>
-      <p>{{card.time}}</p>
-      <a href="">{{card.location}}</a>
+      <div class="date">
+        <span class='glyphicon glyphicon-calendar'></span>
+        <p>{{card.date}}</p>
+      </div>
+      <div class="time">
+        <span class='glyphicon glyphicon-time'></span>
+        <p>{{card.time}}</p>
+      </div>
+      <div class="location">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        <p>{{card.location}}</p>
+      </div>
     </div>
   </div>
 </section>

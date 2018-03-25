@@ -1,20 +1,30 @@
 .search-container {
     margin: 0 auto;
     margin-top: -8px;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .search input {
+    font-size: 16px;
     margin: 0 auto;
     width: 100%;
-    padding-left: 26px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-left: 30px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+}
+
+.search input:focus {
+    outline: none;
 }
 
 .search span {
     font-size: 18px;
     float: left;
     top: 22px;
-    left: 4px;
+    left: 6px;
+    color: rgba(0,0,0,0.5);
 }
 
 .card {
@@ -24,6 +34,7 @@
     margin-bottom: 16px;
     padding-top: 16px;
     padding-bottom: 16px;
+    font-size: 16px;
 }
 
 .card:hover {
@@ -31,20 +42,59 @@
 }
 
 .container {
-    padding: 2px 16px;
+    padding: 0px 16px;
     width: 100%;
 }
 
 .container h2 {
     margin: 0 auto;
+    margin-bottom: 8px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.date, .time, .location {
+    display: flex;
+    height: 32px;
+    line-height: 32px;
+}
+
+.date span, .time span, .location span {
+    font-size: 18px;
+    margin-right: 16px;
+    top: 7px;
+}
+
+.location span {
+    left: -1.5px;
 }
 
 .points, .join {
     float: right;
 }
 
+.points {
+    height: 33px;
+    line-height: 33px;
+    font-size: 18px;
+    margin-top: 4px;
+    color: #57AD68;
+}
+
 .join {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
+    height: 40px;
+    width: 75px;
+    color: #57AD68;
+    border: 1px solid #57AD68;
+    border-radius: 5px;
+    margin-top: 95px;
+    margin-right: -65px;
+    text-align: center;
+    line-height: 38px;
+}
+
+.join:hover {
+    background-color: #57AD68;
+    color: white;
+    transition: 0.3s;
 }
