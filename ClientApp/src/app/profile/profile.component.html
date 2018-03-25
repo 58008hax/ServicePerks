@@ -1,19 +1,18 @@
 <section class="title-container">
-    <h1>{{user_name}}'s Profile</h1>
+    <h1>{{user_profile.firstName}} {{user_profile.lastName}}' Profile</h1>
 </section>
 
 <section class="profile-info">
     <div class="parent">
         <img src="./../../assets/profile_img.png" class="image1">
         <img src="./../../assets/green_circle.png" class="image2">
-        <h3 class="point_total">{{user_points}}</h3>
+        <h3 class="point_total">{{user_profile.pointsAvailable}}</h3>
         <p class="point_p">Points</p>
     </div>
-    <!-- <div class="stats">
-        <h4>Total money saved: ${{money_saved}}</h4>
-        <h4>Total points earned: {{user_total_points}}</h4>
-        <h4>Events attended: {{num_events}}</h4>
-    </div> -->
+    <div class="stats">
+        <h4>Total money saved: ${{user_profile.saved}}</h4>
+        <h4>Total points earned: {{user_profile.totalPoints}}</h4>
+    </div>
 </section>
 
 <h2 class="h2">Registered Events</h2>
@@ -40,55 +39,17 @@
     </div>
 </section>
 
-<!-- <h2 class="h2">Past Events</h2>
-<section class="feed-container">
-    <div class="card" *ngFor="let card of past_items">
-        <div class="container">
-            <div class="points">
-                <span>{{card.points}} pts.</span>
-            </div>
-            <h3>{{card.name}}</h3>
-            <div class="date">
-                <span class='glyphicon glyphicon-calendar'></span>
-                <p>{{card.date}}</p>
-            </div>
-            <div class="time">
-                <span class='glyphicon glyphicon-time'></span>
-                <p>{{card.time}}</p>
-            </div>
-            <div class="location">
-                <span class="glyphicon glyphicon-map-marker"></span>
-                <p>{{card.location}}</p>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- <h2 class="h2">Available Coupons</h2>
+<h2 class="h2">Available Coupons</h2>
 <section class="feed-container">
     <div class="card" *ngFor="let card of my_cards">
         <div class="container">
             <div class="points">
-                <span>{{card.points}} pts.</span>
+                <span>{{card.redeemPoints}} pts.</span>
             </div>
             <button class="button">Activate</button>
-            <h3>{{card.business}}</h3>
-            <p>{{card.description}}</p>
+            <h3>{{card.name}}</h3>
+            <p>{{card.offer}}</p>
             <p>${{card.value}} value</p>
         </div>
     </div>
-</section> -->
-
-<!-- <h2 class="h2">Used Coupons</h2>
-<section class="feed-container">
-    <div class="card" *ngFor="let card of used_cards">
-        <div class="container">
-            <div class="points">
-                <span>{{card.points}} pts.</span>
-            </div>
-            <h3>{{card.business}}</h3>
-            <p>{{card.description}}</p>
-            <p>${{card.value}} value</p>
-        </div>
-    </div>
-</section> -->
+</section>
