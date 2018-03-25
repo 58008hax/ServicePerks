@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent {
-    constructor() {
-        
+    data:any;
+
+    constructor(private route: ActivatedRoute) {
+        this.route.params.subscribe(params => {
+            this.data = JSON.parse(params.data);
+            console.log(this.data);
+        });
     }
 }

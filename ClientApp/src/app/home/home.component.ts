@@ -42,7 +42,8 @@ export class HomeComponent {
   goToEvent(card:any) {
     console.log("Event Clicked:");
     console.log(card);
-    this.router.navigate(['/event', {data: card}]);
+    let cardString = JSON.stringify(card);
+    this.router.navigate(['/event', {data: cardString}]);
   }
 
   filterItems() {
