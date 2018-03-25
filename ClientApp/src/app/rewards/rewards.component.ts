@@ -30,6 +30,12 @@ export class RewardsComponent {
                 points: 500,
                 description: "20% off an order of $10 or more",
                 value: 5
+            },
+            {
+                business: "Pita Pit",
+                points: 700,
+                description: "Free regular pita sandwich",
+                value: 7
             }
         ]
 
@@ -50,6 +56,12 @@ export class RewardsComponent {
                 business: "Stevens School Store",
                 points: 500,
                 description: "20% off an order of $10 or more",
+                value: 5
+            },
+            {
+                business: "Mamouns",
+                points: 500,
+                description: "Free medium hummus with purchase of a meal",
                 value: 5
             }
         ]

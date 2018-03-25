@@ -33,7 +33,8 @@
     padding-top: 8px;
     padding-bottom: 8px;
     margin-right: 8px;
-    width: 300px;
+    width: 400px;
+    display: inline-block;
 }
 
 .card:hover {
@@ -41,10 +42,9 @@
 }
 
 .feed-container {
-    display: flex;
-}
-.feed-container > div {
-    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
 .container {
@@ -57,6 +57,10 @@
     margin-bottom: 8px;
     padding-bottom: 2px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.h2 {
+    border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 
 .h3 {
