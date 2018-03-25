@@ -21,23 +21,23 @@
   <div class="card" *ngFor="let card of items" (click)="goToEvent(card)">
     <div class="container">
       <div class="points">
-        <span>{{card.points}} pts.</span>
+        <span>{{card.eventPoints}} pts.</span>
       </div>
       <div class="join">
         <p>Join</p>
       </div>
-      <h2>{{card.name}}</h2>
+      <h2>{{card.eventName}}</h2>
       <div class="date">
         <span class='glyphicon glyphicon-calendar'></span>
-        <p>{{card.date}}</p>
+        <p>{{card.eventDate}}</p>
       </div>
       <div class="time">
         <span class='glyphicon glyphicon-time'></span>
-        <p>{{card.time}}</p>
+        <p>{{card.startTime}} - {{card.endTime}}</p>
       </div>
       <div class="location">
         <span class="glyphicon glyphicon-map-marker"></span>
-        <p>{{card.location}}</p>
+        <p>{{card.eventLocation}}</p>
       </div>
     </div>
   </div>

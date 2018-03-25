@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -11,35 +12,20 @@ export class HomeComponent {
   items:any;
   searchInput:string;
 
-  constructor(private router: Router) {
-    //Load most recent events
-    this.cards = [
-      {
-        id: 1,
-        name: "Park Cleanup", 
-        date: "Saturday, March 31",
-        time: "3:00pm - 5:00pm",
-        location: "Stevens Park, Hoboken, NJ 07030",
-        points: 200
-      },
-      {
-        id: 2,
-        name: "Homeless Shelter", 
-        date: "Sunday, April 1",
-        time: "1:00pm - 2:00pm",
-        location: "The Hoboken Shelter, Hoboken, NJ 07030",
-        points: 100
-      },
-      {
-        id: 3,
-        name: "Boys and Girls Club", 
-        date: "Tuesday, April 3",
-        time: "6:00pm - 8:00pm",
-        location: "Boy's & Girls Club-Hudson County, Hoboken, NJ 07030",
-        points: 200
+  constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get(baseUrl + 'api/events').subscribe(result => {
+      console.log(result);
+      if (result == null) {
+        console.log("No events exists");
+        return;
       }
-    ];
-    this.items = this.cards;
+      this.cards = result;
+      for (let card of this.cards) {
+        card.eventDate = new Date(card.eventDate).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        console.log(card.eventDate);
+      }
+      this.items = this.cards;
+    });
   }
 
   goToEvent(card:any) {
