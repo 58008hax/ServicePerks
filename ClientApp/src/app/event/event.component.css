@@ -1,15 +1,72 @@
-/* Create three equal columns that floats next to each other */
-.num-of-people, .date-time, .points {
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+section.stats {
+    margin-top: 24px;
 }
 
+.join {
+    float: right;
+    height: 40px;
+    width: 75px;
+    color: #57AD68;
+    border: 1px solid #57AD68;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 38px;
+    margin-top: -49px;
+}
 
-/* Clear floats after the columns */
-.stats:after {
+.join:hover {
+    background-color: #57AD68;
+    color: white;
+    transition: 0.3s;
+}
+
+.stat {
+    float: left;
+    width: 33.33%;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+
+.stat p {
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 70%;
+    margin: 0 auto;
+}
+
+.stat h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+    height: 52px;
+    line-height: 52px;
+}
+
+.date-time h2 {
+    height: 26px;
+    line-height: 26px;
+}
+
+.date-time h3 {
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+.stats-columns:after {
     content: "";
     display: table;
     clear: both;
+}
+
+.description {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.description .header {
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.description p {
 }
