@@ -1,5 +1,5 @@
 <section class="title">
-    <h1>{{data.name}}</h1>
+    <h1>{{data.eventName}}</h1>
     <div class="join">
         <p>Join</p>
     </div>
@@ -9,26 +9,27 @@
     <div class="stats-columns">
         <div class="stat num-of-people">
             <p>People Signed Up</p>
-            <h2>{{numOfPeople}}</h2>
+            <h2>{{data.registered}}</h2>
         </div>
         <div class="stat date-time">
             <p>Date and Time</p>
-            <h2>{{date}}</h2>
-            <h3>{{time}}</h3>
+            <h2>{{data.eventDate}}</h2>
+            <h3>{{data.startTime}} - {{data.endTime}}</h3>
         </div>
         <div class="stat points">
             <p>Total Points</p>
-            <h2>{{points}}</h2>
+            <h2>{{data.eventPoints}}</h2>
         </div>
     </div>
     <div class="description">
         <p class="header">Description</p>
-        <p>{{description}}</p>
+        <p>{{data.eventDescription}}</p>
     </div>
     <div class="location">
         <p class="header">Location</p>
-        <agm-map [latitude]="lat" [longitude]="long" [zoom]="15">
-            <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+        <p>{{data.eventLocation}}</p>
+        <agm-map [latitude]="data.eventLat" [longitude]="data.eventLong" [zoom]="15">
+            <agm-marker [latitude]="data.eventLat" [longitude]="data.eventLong"></agm-marker>
         </agm-map>
     </div>
 </section>
