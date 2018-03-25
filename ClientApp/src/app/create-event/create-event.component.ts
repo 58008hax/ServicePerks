@@ -5,6 +5,7 @@ import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import { unescapeIdentifier } from '@angular/compiler';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-create-event',
@@ -16,7 +17,7 @@ export class CreateEventComponent implements OnInit {
     public startTime:string;
     public endTime:string;
     public date:string;
-    public location:string;
+    location:string;
     public description:string;
 
     public latitude: number;
@@ -38,7 +39,7 @@ export class CreateEventComponent implements OnInit {
         })
       };
 
-    constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private http: HttpClient, @Inject('BASE_URL') baseURL: string) {
+    constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private http: HttpClient, @Inject('BASE_URL') baseURL: string, private router: Router) {
         this.baseUrl = baseURL;
     }
 
@@ -97,6 +98,9 @@ export class CreateEventComponent implements OnInit {
         this.endTime = this.formatTime(this.endTime);
         this.date = this.dateElementRef.nativeElement.value;
         this.description = this.descriptionElementRef.nativeElement.value;
+        if (this.location == undefined) {
+            this.location = this.searchElementRef.nativeElement.value;
+        }
         
         if (this.eventTitle == undefined || this.startTime == undefined || this.endTime == undefined || this.date == undefined || this.location == undefined || this.description == undefined) {
             alert("Please fill out all fields.");
@@ -119,6 +123,7 @@ export class CreateEventComponent implements OnInit {
         console.log(eventData);
         this.http.post(this.baseUrl + 'api/events', eventData, this.httpOptions).subscribe(result => {
             console.log(result);
+            this.router.navigate(['/']);
         }, error => {
             console.log("An error occured");
         });
@@ -132,4 +137,6 @@ export class CreateEventComponent implements OnInit {
         timeString = h + timeString.substr(2, 3) + ampm;
         return timeString;
     }
+
+
 }

@@ -22,6 +22,8 @@ export class EventComponent {
     long:number;
 
     constructor(private route: ActivatedRoute, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+        this.lat = 40.745310;
+        this.long = -74.026239;
         this.route.params.subscribe(params => {
             this.id = params.data;
             console.log(this.id);
@@ -33,6 +35,10 @@ export class EventComponent {
 
                 this.data = result;
                 this.data.eventDate = new Date(this.data.eventDate).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                if (this.data.eventLat != undefined && this.data.eventLong != undefined) {
+                    this.lat = this.data.eventLat;
+                    this.long = this.data.eventLong;
+                }
             })
         });
     }
