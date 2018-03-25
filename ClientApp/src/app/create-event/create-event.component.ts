@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { unescapeIdentifier } from '@angular/compiler';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
     selector: 'app-create-event',
@@ -29,7 +31,16 @@ export class CreateEventComponent implements OnInit {
     @ViewChild("date") public dateElementRef: ElementRef;
     @ViewChild("description") public descriptionElementRef: ElementRef;
 
-    constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
+    baseUrl: string;
+    httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json; charset=utf-8'
+        })
+      };
+
+    constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private http: HttpClient, @Inject('BASE_URL') baseURL: string) {
+        this.baseUrl = baseURL;
+    }
 
     ngOnInit() {
         //set google maps defaults
@@ -79,18 +90,46 @@ export class CreateEventComponent implements OnInit {
     }
 
     submit() {
-        //do some basic user input checking
         this.eventTitle = this.eventTitleElementRef.nativeElement.value;
-        console.log("Event Title: " + this.eventTitle);
         this.startTime = this.startTimeElementRef.nativeElement.value;
-        console.log("Start Time: " + this.startTime);
+        this.startTime = this.formatTime(this.startTime);
         this.endTime = this.endTimeElementRef.nativeElement.value;
-        console.log("End Time: " + this.endTime);
+        this.endTime = this.formatTime(this.endTime);
         this.date = this.dateElementRef.nativeElement.value;
-        console.log("Date: " + this.date);
-        console.log("Location: " + this.location);
-        console.log("Lat: " + this.latitude + " Long: " + this.longitude);
         this.description = this.descriptionElementRef.nativeElement.value;
-        console.log("Description: " + this.description);
+        
+        if (this.eventTitle == undefined || this.startTime == undefined || this.endTime == undefined || this.date == undefined || this.location == undefined || this.description == undefined) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        let eventData = {
+            "eventName": this.eventTitle,
+            "startTime": this.startTime,
+            "endTime": this.endTime,
+            "eventDate": this.date,
+            "eventLat": this.latitude,
+            "eventLong": this.longitude,
+            "eventLocation": this.location,
+            "eventDescription": this.description,
+            "registered": 0,
+            "eventPoints": 300
+        };
+
+        console.log(eventData);
+        this.http.post(this.baseUrl + 'api/events', eventData, this.httpOptions).subscribe(result => {
+            console.log(result);
+        }, error => {
+            console.log("An error occured");
+        });
+    }
+
+    formatTime(time) {
+        var timeString = time;
+        var H = +timeString.substr(0, 2);
+        var h = H % 12 || 12;
+        var ampm = (H < 12 || H === 24) ? "AM" : "PM";
+        timeString = h + timeString.substr(2, 3) + ampm;
+        return timeString;
     }
 }

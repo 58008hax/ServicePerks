@@ -69,7 +69,7 @@ namespace ServicePerks.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateEvent(Events e)
+        public IActionResult CreateEvent([FromBody]Events e)
         {
             _context.Events.Add(e);
             _context.SaveChanges();
