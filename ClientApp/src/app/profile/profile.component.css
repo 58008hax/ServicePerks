@@ -8,6 +8,7 @@
     margin-right: 8px;
     width: 400px;
     display: inline-block;
+    margin-left: 5px;
 }
 
 .card:hover {
@@ -94,5 +95,41 @@
 
 .button:hover {
     background-color: #4CAF50;
+    color: white;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.image1 {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.image2 {
+    position: absolute;
+    top: 135px;
+    left: 135px;
+    height: 100px;
+    width: 100px;
+}
+
+.point_total {
+    position: absolute;
+    top: 145px;
+    left: 165px;
+    color: white;
+}
+
+.point_p {
+    position: absolute;
+    top: 187px;
+    left: 165px;
     color: white;
 }

@@ -11,6 +11,8 @@ export class ProfileComponent {
     public used_cards:any;
     public money_saved = 0;
     public upcoming_items:any;
+    public past_items:any;
+    public user_points = 700;
 
     constructor() {
         this.my_cards = [
@@ -81,6 +83,23 @@ export class ProfileComponent {
                 location: "Boy's & Girls Club-Hudson County, Hoboken, NJ 07030",
                 points: 200
               }
+        ]
+
+        this.past_items = [
+            {
+                name: "Hoboken Fun Run",
+                date: "Saturday, February 20",
+                time: "8:00am - 1:00pm",
+                location: "Pier A, Hoboken, NJ 07030",
+                points: 500
+            },
+            {
+                name: "Career Fair",
+                date: "Wednesday, March 15",
+                time: "11:00am - 3:00pm",
+                location: "1 Castle Point Ter, Hoboken, NJ 07030",
+                points: 400
+            }
         ]
     }
 }
