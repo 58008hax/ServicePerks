@@ -10,7 +10,7 @@
     <div class="card" *ngFor="let card of my_cards">
         <div class="container">
             <div class="points">
-                <p>{{card.points}} pts.</p>
+                <span>{{card.points}} pts.</span>
             </div>
             <h3>{{card.business}}</h3>
             <p>{{card.description}}</p>
@@ -23,14 +23,12 @@
     <div class="card" *ngFor="let card of avail_cards">
         <div class="container">
             <div class="points">
-                <p>{{card.points}} pts.</p>
+                <span>{{card.points}} pts.</span>
             </div>
+            <button class="button">Redeem</button>
             <h3>{{card.business}}</h3>
             <p>{{card.description}}</p>
             <p>${{card.value}} value</p>
-            <div class="buy">
-                <button class="button">Redeem</button>
-            </div>
         </div>
     </div>
 </section>
